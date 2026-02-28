@@ -186,6 +186,9 @@ def compare_trees(
     a_files, a_dirs, errors_a = scan_tree_files(
         root_a, stage="scan_a", cancel_event=cancel_event, on_progress=on_progress, follow_symlinks=follow_symlinks
     )
+    
+    elapsed_seconds = time.perf_counter() - start_ts
+       
     if cancel_event.is_set():
         # return partial but consistent result
         return CompareResults(
@@ -280,7 +283,7 @@ def compare_trees(
         extras_in_b=extras_in_b,
         errors_a=errors_a,
         errors_b=errors_b,
-        elapsed_seconds=elapsed_seconds,  # 👈 ADD
+        elapsed_seconds=elapsed_seconds,  
         pass_ok=pass_ok,
     )
 
