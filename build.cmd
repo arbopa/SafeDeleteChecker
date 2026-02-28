@@ -1,0 +1,1 @@
+python -m PyInstaller --onefile --windowed --clean --name "SafeDeleteChecker" --icon icon.ico safe_delete_checker_gui.py
